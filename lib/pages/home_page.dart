@@ -1,5 +1,10 @@
+import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:home_automation_system/fragments/devices_fragment.dart';
 import 'package:home_automation_system/fragments/home_fragment.dart';
+import 'package:home_automation_system/fragments/profile_fragment.dart';
+import 'package:home_automation_system/routes/router.gr.dart';
 import 'package:home_automation_system/values/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,21 +20,25 @@ class _HomePageState extends State<HomePage> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   static const List<String> _titles = <String>[
-    "Homes",
+    "Hubs",
     "Devices",
     "Profile"
+  ];
+  List<Widget> _actions = <Widget>[
+    Padding(
+      padding: EdgeInsets.only(right: 16, left: 16),
+      child: Icon(
+        Icons.add,
+      ),
+    ),
+    Container(),
+    Container()
   ];
 
   static const List<Widget> _widgetOptions = <Widget>[
     HomeFragment(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    DevicesFragment(),
+    ProfileFragment()
   ];
 
   void _onItemTapped(int index) {
@@ -43,7 +52,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: null,
+
         title: Text(_titles[_selectedIndex]),
+        actions: [
+          InkWell(
+            borderRadius: BorderRadius.circular(40),
+            onTap: (){
+              if (_selectedIndex == 0){
+                // add home
+                AutoRouter.of(context).navigate(AddHubPageRoute());
+              }
+            },
+            child: _actions[_selectedIndex],
+          )
+        ],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -52,7 +74,7 @@ class _HomePageState extends State<HomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Homes',
+            label: 'Hubs',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.lightbulb),

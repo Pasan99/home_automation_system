@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:home_automation_system/values/colors.dart';
 
 class AppConfig{
-  static final double BUTTON_BORDER_RADIUS = 14;
-  static final double CARD_BORDER_RADIUS = 20;
-  static final double TEXT_FIELD_BORDER_RADIUS = 14;
+  static final double BUTTON_BORDER_RADIUS = 12;
+  static final double CARD_BORDER_RADIUS = 16;
+  static final double TEXT_FIELD_BORDER_RADIUS = 8;
 }
 
 class AppStyles{

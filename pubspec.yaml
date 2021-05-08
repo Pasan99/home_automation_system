@@ -29,6 +29,7 @@ dependencies:
   vibration: ^1.7.4-nullsafety.0
   fl_chart: ^0.35.0
   http: ^0.13.1
+  firebase_database: ^7.0.0-dev.2
 
 dev_dependencies:
   auto_route_generator: ^1.0.2

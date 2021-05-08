@@ -163,7 +163,8 @@ class _LoginPageState extends State<LoginPage> {
                                         if (result){
                                           ScaffoldMessenger.of(context).removeCurrentSnackBar();
                                           _isLoading = false;
-                                          AutoRouter.of(context).popAndPush(HomePageRoute());
+                                          AutoRouter.of(context).pop();
+                                          AutoRouter.of(context).replace(HomePageRoute());
                                         }
                                         else{
                                           ScaffoldMessenger.of(context).removeCurrentSnackBar();

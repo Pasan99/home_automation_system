@@ -85,7 +85,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 32, right: 32, left: 32),
-                  child: Text("Life is easy", style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12, color: AppColors.TEXT_WHITE),),
+                  child: Text("Software version v0.8", style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12, color: AppColors.TEXT_WHITE),),
                 )
               ],
             ),
