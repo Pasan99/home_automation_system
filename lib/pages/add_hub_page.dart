@@ -5,6 +5,7 @@ import 'package:home_automation_system/values/colors.dart';
 import 'package:home_automation_system/values/config.dart';
 import 'package:home_automation_system/viewmodels/add_new_hub_viewmodel.dart';
 import 'package:home_automation_system/widgets/device_item.dart';
+import 'package:home_automation_system/widgets/device_item_view.dart';
 import 'package:provider/provider.dart';
 
 class AddHubPage extends StatefulWidget {
@@ -144,7 +145,7 @@ class _AddHubPageState extends State<AddHubPage> {
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 24.0),
                               child: ElevatedButton(
-                                onPressed: () async {
+                                onPressed: !model.isLoading ? () async {
                                   if (_formKey.currentState!.validate()) {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(content: Text('Creating new hub....')));
@@ -159,7 +160,7 @@ class _AddHubPageState extends State<AddHubPage> {
                                           .showSnackBar(SnackBar(content: Text('This hub is already assigned to a user or Something went wrong please try again')));
                                     }
                                   }
-                                },
+                                } : null,
                                 style: OutlinedButton.styleFrom(
                                   backgroundColor: AppColors.MAIN_COLOR,
                                     side: BorderSide(width: 1, color: Colors.transparent),
@@ -193,7 +194,7 @@ class _AddHubPageState extends State<AddHubPage> {
                       child: model.hubDeviceList != null && model.hubDeviceList!.length > 0 ?  ListView(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        children: model.hubDeviceList!.map((e) => DeviceItem(
+                        children: model.hubDeviceList!.map((e) => DeviceItemView(
                           deviceModel: e,
                           onTap: (){
                           },

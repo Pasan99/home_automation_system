@@ -5,6 +5,7 @@ import 'package:home_automation_system/pages/devices_page.dart';
 import 'package:home_automation_system/pages/home_page.dart';
 import 'package:home_automation_system/pages/login_page.dart';
 import 'package:home_automation_system/pages/splash_screen.dart';
+import 'package:home_automation_system/pages/usage_chart_page.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
@@ -13,6 +14,7 @@ import 'package:home_automation_system/pages/splash_screen.dart';
     MaterialRoute(page: LoginPage, path: "/login"),
     MaterialRoute(page: DevicesPage, path: "/devices/:id"),
     MaterialRoute(page: AddHubPage, path: "/addNewHub"),
+    MaterialRoute(page: UsageChartPage, path: "/usageChart"),
   ],
 )
 class $NewRouter {

@@ -15,6 +15,8 @@ DeviceModel _$DeviceModelFromJson(Map<String, dynamic> json) {
     hubName: json['hub_name'] as String?,
     status: json['status'] as bool?,
     userId: json['user_id'] as String?,
+    watts: (json['watts'] as num).toDouble(),
+    isContinuouslyRunning: json['isContinuouslyRunning'] as bool,
   )..isLoadingStatus = json['isLoadingStatus'] as bool?;
 }
 
@@ -26,6 +28,8 @@ Map<String, dynamic> _$DeviceModelToJson(DeviceModel instance) =>
       'hub_name': instance.hubName,
       'device_type': instance.deviceType,
       'user_id': instance.userId,
+      'watts': instance.watts,
+      'isContinuouslyRunning': instance.isContinuouslyRunning,
       'status': instance.status,
       'isLoadingStatus': instance.isLoadingStatus,
     };
